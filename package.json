@@ -1,7 +1,7 @@
 {
-	"name": "hr.maleric.simpleDialogue",
+	"name": "hr.maleric.dialogue",
 	"version": "0.8.0",
-	"displayName": "Maleric Simple Dialogue",
+	"displayName": "Maleric Dialogue",
 	"description": "Package with Simple Dialogue implementation",
 	"unity": "2019.2",
 	"repository": {
