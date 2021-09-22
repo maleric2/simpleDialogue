@@ -1,0 +1,16 @@
+{
+    "name": "Unity.hr.maleric.dialogue.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:32a6140a43ea3e14287dc453d0c7a6bb"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
