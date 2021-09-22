@@ -1,0 +1,20 @@
+{
+	"name": "hr.maleric.simpleDialogue",
+	"version": "0.8.0",
+	"displayName": "Maleric Simple Dialogue",
+	"description": "Package with Simple Dialogue implementation",
+	"unity": "2019.2",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/maleric2/simpleDialogue.git"
+	},
+	"keywords": [
+		"dialogue",
+		"maleric"
+	],
+	"author": {
+		"name": "Marko Aleric",
+		"email": "markoall1@gmail.com",
+		"url": "https://interactivesolutions.hr/"
+	}
+}
