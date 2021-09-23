@@ -49,14 +49,14 @@ namespace maleric.Dialogue
 			{
 				case DialoguePosition.Left:
 					leftCharacterImage.sprite = dialogueLine.CharacterData.ExpressionSprite;
-					leftCharacterImage.enabled = true;
 					rightCharacterImage.enabled = false;
+					leftCharacterImage.enabled = true;
 					break;
 
 				case DialoguePosition.Right:
 					rightCharacterImage.sprite = dialogueLine.CharacterData.ExpressionSprite;
-					rightCharacterImage.enabled = true;
 					leftCharacterImage.enabled = false;
+					rightCharacterImage.enabled = true;
 					break;
 			}
 
