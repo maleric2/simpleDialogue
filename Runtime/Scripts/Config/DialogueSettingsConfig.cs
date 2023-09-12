@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
 
-#if UNITY_EDITOR
-#endif
-
 namespace maleric.Dialogue
 {
-	[CreateAssetMenu(menuName = "maleric/Dialogue/Dialogue Config", fileName = "DialogueConfig")]
-	public class DialogueConfig : ScriptableObject
+	[CreateAssetMenu(menuName = "maleric/Dialogue/Dialogue Settings Config", fileName = "DialogueSettingsConfig")]
+	public class DialogueSettingsConfig : ScriptableObject
 	{
 
 		public GameObject DialogueViewPrefab;

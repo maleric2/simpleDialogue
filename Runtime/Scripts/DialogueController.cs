@@ -12,7 +12,7 @@ namespace maleric.Dialogue
 
 		protected DialogueService service;
 
-		public DialogueController(DialogueConfig config, DialogueService dialogueService)
+		public DialogueController(DialogueSettingsConfig config, DialogueService dialogueService)
 		{
 			service = dialogueService;
 

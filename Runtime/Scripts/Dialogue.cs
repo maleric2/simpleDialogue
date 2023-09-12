@@ -41,7 +41,7 @@ namespace maleric.Dialogue
 		private static Dialogue CreateInstance()
 		{
 			Dialogue instance = null;
-			var configs = Resources.LoadAll<DialogueConfig>("");
+			var configs = Resources.LoadAll<DialogueSettingsConfig>("");
 			if (configs != null && configs.Length > 0)
 			{
 				instance = new Dialogue(configs[0]);
@@ -50,14 +50,14 @@ namespace maleric.Dialogue
 		}
 
 		private static Dialogue instance;
-		private DialogueConfig config;
+		private DialogueSettingsConfig config;
 		private DialogueSequenceConfig[] dialogueSequenceConfigs;
 
 		private bool isInitialized;
 		private DialogueController controller;
 		private DialogueService service;
 
-		private Dialogue(DialogueConfig config)
+		private Dialogue(DialogueSettingsConfig config)
 		{
 			this.config = config;
 			this.dialogueSequenceConfigs = Resources.LoadAll<DialogueSequenceConfig>(config.DialogueSequencePath);
