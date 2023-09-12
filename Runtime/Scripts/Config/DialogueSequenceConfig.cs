@@ -22,6 +22,8 @@ namespace maleric.Dialogue
 
 		public abstract void EDITOR_SetDialogueLines(List<IDialogueLine> lines);
 
+		public abstract bool EDITOR_TryToParseToDialogueLine(string text, out IDialogueLine line);
+
 		public void PlaySequence()
 		{
 			if (Application.isPlaying) OnPlayRequest?.Invoke(this);
@@ -38,7 +40,7 @@ namespace maleric.Dialogue
 	/// Extend this class with using custom dialogue line that can be localized, set or downloaded differently
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
-	public class DialogueSequenceConfig<T> : DialogueSequenceConfig where T : IDialogueLine
+	public abstract class DialogueSequenceConfig<T> : DialogueSequenceConfig where T : IDialogueLine
 	{
 		[SerializeField] private List<T> _lines = new List<T>();
 
@@ -63,6 +65,12 @@ namespace maleric.Dialogue
 	[CustomEditor(typeof(DialogueSequenceConfig), true)]
 	public class DialogueCharacterDefinitionEditor : Editor
 	{
+		private const string pasteHelp =
+			"Quickly add dialogues. Use Following sytax:\n" +
+			"Character1 (expression): Your Text \\n \n" +
+			"Character2 (expression): Another Text";
+		private string pasteContent;
+
 		public override void OnInspectorGUI()
 		{
 			DrawDefaultInspector();
@@ -80,9 +88,44 @@ namespace maleric.Dialogue
 				Dialogue.Initialize();
 				myScript.AddToQueue();
 			}
+
 			GUI.enabled = true;
+			EditorGUILayout.Space();
 
+			pasteContent = EditorGUILayout.TextArea(pasteContent);
+			EditorGUILayout.HelpBox(pasteHelp, MessageType.Info);
+			EditorGUILayout.BeginHorizontal();
+			if (GUILayout.Button("Add"))
+			{
+				List<IDialogueLine> lines = new List<IDialogueLine>();
+				for (int i = 0; i < myScript.LineCount; i++) lines.Add(myScript.GetLineAt(i));
+				var rawDialogueLines = pasteContent.Split('\n');
+				foreach (var rawLine in rawDialogueLines)
+				{
+					if (myScript.EDITOR_TryToParseToDialogueLine(rawLine, out var line))
+					{
+						lines.Add(line);
+					}
+				}
+				myScript.EDITOR_SetDialogueLines(lines);
+				EditorUtility.SetDirty(myScript);
+			}
+			if (GUILayout.Button("Replace Existing"))
+			{
+				List<IDialogueLine> lines = new List<IDialogueLine>();
+				var rawDialogueLines = pasteContent.Split('\n');
+				foreach(var rawLine in rawDialogueLines)
+				{
+					if(myScript.EDITOR_TryToParseToDialogueLine(rawLine, out var line))
+					{
+						lines.Add(line);
+					}
+				}
+				myScript.EDITOR_SetDialogueLines(lines);
+				EditorUtility.SetDirty(myScript);
 
+			}
+			EditorGUILayout.EndHorizontal();
 		}
 	}
 #endif
