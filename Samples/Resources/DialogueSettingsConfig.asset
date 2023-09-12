@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6e7a99fed273a84f8dbf3bc4e6ae57c, type: 3}
-  m_Name: DialogueConfig
+  m_Name: DialogueSettingsConfig
   m_EditorClassIdentifier: 
   DialogueViewPrefab: {fileID: 6345792685950847298, guid: fc6910e6fcdc0c343b5305cab781eaaf, type: 3}
   UseSingleton: 1
