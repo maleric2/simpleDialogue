@@ -1,7 +1,7 @@
-#Simple Dialogue solution from maleric
+# Simple Dialogue solution from maleric
 A Simple Dialogue Package with Dialogue solution. Solution support extension and creation of custom View, controller using different Initialize parameters.
 
-#How to use it
+# How to use it
 ![Demo](Dialogue_Demo.gif)
 
 ## Setup Dialogue Settings Config
@@ -33,6 +33,8 @@ public class ShowDialogueOnStart : MonoBehaviour
 		if (startDialogue != null)
 		{
 			Dialogue.Instance.PlayImmediately(startDialogue);
+			// or to add it to playing queue
+			// Dialogue.Instance.Play(startDialogue);
 		}
 	}
 }
