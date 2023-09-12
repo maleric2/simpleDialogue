@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace maleric.Dialogue
 {
-
 	/// <summary>
 	/// Brain Of Dialogue System which should be used in custom logic in service or controller or in somethign similar
 	/// </summary>
@@ -45,7 +44,7 @@ namespace maleric.Dialogue
 		public DialogueService(Func<string, bool> checkWasDialoguePlayed)
 		{
 			_checkWasDialoguePlayed = checkWasDialoguePlayed;
-			if (_checkWasDialoguePlayed == null) Debug.LogError("Dialogue System checkWasDialoguePlayed is not implemented");
+			if (_checkWasDialoguePlayed == null) Debug.LogWarning("Dialogue System checkWasDialoguePlayed is not implemented");
 			_disabledCount = 1;
 		}
 

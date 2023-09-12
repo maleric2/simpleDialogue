@@ -50,7 +50,6 @@ namespace maleric.Dialogue
 				expressions.Add("None");
 			}
 
-			//EditorGUI.ObjectField(new Rect(position.x, position.y, position.width * 0.62f, position.height), characterDefProp); // Reference
 			selectedDefinitionIndex = EditorGUI.Popup(new Rect(position.x, position.y, position.width * 0.71f, position.height), label.text, selectedDefinitionIndex, definitions.ToArray());
 			characterNameProp.stringValue = definitions[selectedDefinitionIndex];
 			definitionRefProp.objectReferenceValue = characterDefinitions[selectedDefinitionIndex];
@@ -60,28 +59,5 @@ namespace maleric.Dialogue
 
 			EditorGUI.EndProperty();
 		}
-
-		/*public static DialogueCharacterExpressionId DrawEditorProperty(DialogueCharacterExpressionId current, string label)
-        {
-            var soDbService = Kickstarter.EditTimeServiceLocator.Provide<ScriptableObjectDatabaseService>();
-
-            List<string> expressions = new List<string>();
-            if (current.CharacterDefinition != null)
-            {
-                for (int i = 0; i < current.CharacterDefinition.Expressions.Length; i++)
-                {
-                    expressions.Add(current.CharacterDefinition.Expressions[i].Name);
-                }
-            }
-            else
-            {
-                expressions.Add("None");
-            }
-
-            DialogueCharacterDefinition definition = (DialogueCharacterDefinition)EditorGUILayout.ObjectField(current.CharacterDefinition, typeof(DialogueCharacterDefinition));
-            int index = EditorGUILayout.Popup(label, current.ExpressionIndex, expressions.ToArray());
-
-            return new DialogueCharacterExpressionId() { CharacterDefinition = definition, ExpressionIndex = index };
-        }*/
 	}
 }

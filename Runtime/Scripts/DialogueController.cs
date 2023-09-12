@@ -4,6 +4,7 @@ using UnityEngine;
 namespace maleric.Dialogue
 {
 	/// <summary>
+	/// Controller that handles the View and callbacks from it
 	/// </summary>
 	public class DialogueController
 	{

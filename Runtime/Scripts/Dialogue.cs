@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace maleric.Dialogue
 {
-
-
+	/// <summary>
+	/// Common interface and the starting point when using Dialogue System. Use Dialogue.Instance and available methods
+	/// </summary>
 	public class Dialogue
 	{
 		public const string DIALOGUE_SINGLETON_DISABLED_ERROR = "Dialogue Singleton is disabled";
@@ -56,9 +57,6 @@ namespace maleric.Dialogue
 		private DialogueController controller;
 		private DialogueService service;
 
-
-		// Add logic similar to Kickstarter
-		// Initialize it any way on game start
 		private Dialogue(DialogueConfig config)
 		{
 			this.config = config;
